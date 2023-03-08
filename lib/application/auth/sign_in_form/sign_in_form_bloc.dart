@@ -67,7 +67,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
     Future<Either<AuthFailure, Unit>> Function({
-      required EmailAddress emaillAddress,
+      required EmailAddress emailAddress,
       required Password password,
     })
         forwardedCall,
@@ -81,7 +81,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         authFailureOrSuccessOption: none(),
       );
       failureOrSuccess = await forwardedCall(
-        emaillAddress: state.emailAddress,
+        emailAddress: state.emailAddress,
         password: state.password,
       );
     }
